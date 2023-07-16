@@ -35,8 +35,7 @@ lineName = "NAGA1";
 dirName = "Eastward";
 
 if tbl.lat(1) < 15, lineName = "NAGA2"; end
-if tbl.lon(1) > 11, dirName = "We" + ...
-        "stward"; end
+if tbl.lon(1) > 110, dirName = "Westward"; end
 
 if a.current
     suffix = "Current Corr";
