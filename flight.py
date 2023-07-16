@@ -168,7 +168,7 @@ def flyLine(fn:str, stime:str, args:dict) -> pd.DataFrame:
             qMid = np.isnan(uMid) # below bottom, velocities are nan
             if np.any(qMid): # Bottom seen
                 if np.all(qMid):
-                    print("No valid depths found at", lon)
+                    print("Ran aground at", lon, lat, "at", t)
                     break
                 uMid[qMid] = 0 # No current below the bottom
                 vMid[qMid] = 0
