@@ -228,7 +228,6 @@ def flyDates(ifn:str, ofn:str, stime:str, etime:str, args:dict) -> pd.DataFrame:
     items = []
     dt = None
     while stime <= etime:
-        print(stime, etime)
         t = time.time()
         args["stime"] = stime
         df = flyLine(ifn, stime, args)
@@ -238,10 +237,8 @@ def flyDates(ifn:str, ofn:str, stime:str, etime:str, args:dict) -> pd.DataFrame:
         print("Flew", stime, len(items), (etime - stime).astype("timedelta64[D]"), 
               "n", items[-1].shape[0], "dt", dt, "max y", max(abs(df.y)))
         stime += np.timedelta64(1, "D")
-        print(stime, etime)
 
     df = pd.concat(items, ignore_index=True)
-    print(df)
     ds = df.to_xarray()
 
     for key in ("heading", "toLine", "current", "qWestward", "lonEast", "lonWest", 
@@ -251,7 +248,6 @@ def flyDates(ifn:str, ofn:str, stime:str, etime:str, args:dict) -> pd.DataFrame:
     for key  in ds:
         ds[key].encoding.update(dict(zlib=True, complevel=5))
 
-    print(ds)
     ds.to_netcdf(ofn)
 
 if __name__ == "__main__":
