@@ -108,7 +108,7 @@ def flyLine(fn:str, stime:str, args:dict) -> pd.DataFrame:
     dtSurfaceInt = args["dtSurface"]
     dtSurface = np.timedelta64(dtSurfaceInt, "s")
 
-    spd = dzdt / np.sin(np.deg2rad(pitch + aoa)) # Glider's horizontal speed through water
+    spd = dzdt / np.tan(np.deg2rad(pitch + aoa)) # Glider's horizontal speed through water
 
     with xr.open_dataset(fn) as ds:
         stime = min(ds.t.data) if stime is None else np.datetime64(stime)
