@@ -23,10 +23,10 @@ TARGETS = $(foreach TPW, $(ALL), $(TPW).$(DZDT).nc)
 all: $(TARGETS)
 
 naga1.east.270.$(DZDT).nc: naga1.nc flight.py
-	./flight.py --lonEast=$(LON1) --heading=270 --dzdt=$(DZDT) $< $@
+	./flight.py --lonEast=$(LON1) --heading=270 --qEastward --dzdt=$(DZDT) $< $@
 
 naga2.east.270.$(DZDT).nc: naga2.nc flight.py
-	./flight.py --lonEast=$(LON2) --heading=270 --dzdt=$(DZDT) $< $@
+	./flight.py --lonEast=$(LON2) --heading=270 --qEastward --dzdt=$(DZDT) $< $@
 
 naga1.west.90.$(DZDT).nc: naga1.nc flight.py
 	./flight.py --lonEast=$(LON1) --heading=90 --qWestward --dzdt=$(DZDT) $< $@
@@ -35,10 +35,10 @@ naga2.west.90.$(DZDT).nc: naga2.nc flight.py
 	./flight.py --lonEast=$(LON2) --heading=90 --qWestward --dzdt=$(DZDT) $< $@
 
 naga1.east.CC.$(DZDT).nc: naga1.nc flight.py
-	./flight.py --lonEast=$(LON1) --current --dzdt=$(DZDT) $< $@
+	./flight.py --lonEast=$(LON1) --current --qEastward --dzdt=$(DZDT) $< $@
 
 naga2.east.CC.$(DZDT).nc: naga2.nc flight.py
-	./flight.py --lonEast=$(LON2) --current --dzdt=$(DZDT) $< $@
+	./flight.py --lonEast=$(LON2) --current --qEastward --dzdt=$(DZDT) $< $@
 
 naga1.west.CC.$(DZDT).nc: naga1.nc flight.py
 	./flight.py --lonEast=$(LON1) --current --qWestward --dzdt=$(DZDT) $< $@
@@ -47,10 +47,10 @@ naga2.west.CC.$(DZDT).nc: naga2.nc flight.py
 	./flight.py --lonEast=$(LON2) --current --qWestward --dzdt=$(DZDT) $< $@
 
 naga1.east.toLine.$(DZDT).nc: naga1.nc flight.py
-	./flight.py --lonEast=$(LON1) --toLine --dzdt=$(DZDT) $< $@
+	./flight.py --lonEast=$(LON1) --toLine --qEastward --dzdt=$(DZDT) $< $@
 
 naga2.east.toLine.$(DZDT).nc: naga2.nc flight.py
-	./flight.py --lonEast=$(LON2) --toLine --dzdt=$(DZDT) $< $@
+	./flight.py --lonEast=$(LON2) --toLine --qEastward --dzdt=$(DZDT) $< $@
 
 naga1.west.toLine.$(DZDT).nc: naga1.nc flight.py
 	./flight.py --lonEast=$(LON1) --toLine --qWestward --dzdt=$(DZDT) $< $@
